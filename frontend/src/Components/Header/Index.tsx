@@ -9,7 +9,7 @@ export default function Header({title}: Props){
  <AppBar>
     <Toolbar>
         <Typography variant="h6" component="div">
-
+                {title}
         </Typography>
     </Toolbar>
  </AppBar>   
