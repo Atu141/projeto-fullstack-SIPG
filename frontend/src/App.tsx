@@ -1,9 +1,14 @@
+import { Box } from "@mui/material";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
-    <>
-    <h1>Aqui é onde colocaremos o nosso codigo</h1>
-    </>
+    <Box sx={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
+      <Header title="Hub de Produtos"/>
+
+      <Footer />
+    </Box>
   )
 }
 
