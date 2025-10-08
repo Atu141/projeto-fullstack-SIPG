@@ -9,3 +9,7 @@ export async function  findAll(): Promise<CategoriaDTO[]> {
     return response.data;
     
 }
+
+export async function deleteById(id: number) {
+    await axios.delete(`${BASE_URL}/categorias/${id}`)
+}
