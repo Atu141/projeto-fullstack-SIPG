@@ -34,7 +34,7 @@ export default function EditarCategorias() {
           }
           setError(msg);
           setTimeout(() => setError(null), 4000);
-          navigate("/categorias");
+          navigate("/categoria");
         }
       }
     }
