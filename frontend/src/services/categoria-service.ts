@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { CategoriaDTO } from "../models/categoria";
+import type { CategoriaDTO, CategoriaInputDTO } from "../models/categoria";
 import { BASE_URL } from "../utils/system";
 
 export async function  findAll(): Promise<CategoriaDTO[]> {
@@ -28,4 +28,8 @@ export async function update(categoria: CategoriaDTO) {
 
     return response.data;
     
+}
+
+export async function save(categoria:CategoriaInputDTO): Promise<void>{
+    await axios.post(`${BASE_URL}/categorias`, categoria);
 }
