@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   Alert,
   Box,
+  Button,
   CircularProgress,
   IconButton,
   Paper,
@@ -18,7 +18,7 @@ import type { ProdutoDTO } from "../../../models/produto";
 
 import * as produtoService from "../../../services/produto-service";
 import axios from "axios";
-import { Delete, Edit, Style } from "@mui/icons-material";
+import { Delete, Edit } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 export default function ListarProdutos() {
@@ -76,10 +76,27 @@ export default function ListarProdutos() {
           {error}
         </Alert>
       )}
-      <Typography variant="h4" component="h1" gutterBottom>
-        Produtos
-      </Typography>
 
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: 3,
+        }}
+      >
+        <Typography variant="h4" component="h1" gutterBottom>
+          Produtos
+        </Typography>
+        <Button variant="contained">
+          <Link
+            to="/produtos/novo"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            Novo
+          </Link>
+        </Button>
+      </Box>
       {isLoading ? (
         <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
           <CircularProgress />

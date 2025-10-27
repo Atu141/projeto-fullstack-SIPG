@@ -19,3 +19,11 @@ export type ProdutoUpdateDTO = {
   categoria: { id: number };
   lojas: { id: number }[];
 };
+
+export type ProdutoCreateDTO = {
+  nome: string;
+  descricao: string;
+  valor: number;
+  categoria: {id: number};
+  lojas: {id: number}[];
+};

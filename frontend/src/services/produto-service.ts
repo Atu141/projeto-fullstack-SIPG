@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { ProdutoDTO, ProdutoUpdateDTO } from "../models/produto";
+import type { ProdutoCreateDTO, ProdutoDTO, ProdutoUpdateDTO } from "../models/produto";
 import { BASE_URL } from "../utils/system";
 
 export async function findAll(): Promise<ProdutoDTO[]> {
@@ -27,5 +27,12 @@ export async function updateProduto(
     requestBody
   );
 
+  return response.data;
+}
+
+export async function createProduto(
+  dto: ProdutoCreateDTO
+): Promise<ProdutoDTO> {
+  const response = await axios.post(`${BASE_URL}/produtos`, dto);
   return response.data;
 }

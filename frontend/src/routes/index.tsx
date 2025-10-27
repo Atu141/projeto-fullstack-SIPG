@@ -4,6 +4,7 @@ import ListarProdutos from "../pages/produtos/listar-produtos";
 import EditarCategoria from "../pages/categorias/editar-categoria";
 import FormularioNovaCategoria from "../pages/categorias/formulario-nova-categoria";
 import EditarProdutoForm from "../pages/produtos/editar-produto";
+import NovoProdutoForm from "../pages/produtos/novo-produto";
 
 export default function AppRouter() {
   return (
@@ -22,6 +23,8 @@ export default function AppRouter() {
         path="/produtos/editar/:produtoId"
         element={<EditarProdutoForm />}
       />
+
+      <Route path="/produtos/novo" element={<NovoProdutoForm/>}/>
       
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
