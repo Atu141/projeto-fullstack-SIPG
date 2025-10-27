@@ -2,12 +2,20 @@ import type { CategoriaDTO } from "./categoria";
 import type { LojaDTO } from "./loja";
 
 export type ProdutoDTO = {
-    id: number;
-    nome: string;
-    descricao: string;
-    valor: number;
+  id: number;
+  nome: string;
+  descricao: string;
+  valor: number;
 
-    categoria: CategoriaDTO;
+  categoria: CategoriaDTO;
 
-    lojas: LojaDTO[];
-}
+  lojas: LojaDTO[];
+};
+
+export type ProdutoUpdateDTO = {
+  nome: string;
+  descricao: string;
+  valor: number;
+  categoria: { id: number };
+  lojas: { id: number }[];
+};

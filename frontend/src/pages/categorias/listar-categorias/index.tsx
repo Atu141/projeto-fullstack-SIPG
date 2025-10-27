@@ -29,8 +29,7 @@ export default function ListarCategorias() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  const [succes, setSuccess] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchCategorias = async () => {
@@ -52,19 +51,17 @@ export default function ListarCategorias() {
   }, []);
 
   const handleDelete = async (id: number) => {
-    if (window.confirm(`Tem certeza que deseja excuir a Categoria ID: ${id}?`))
+    if (window.confirm(`Tem certeza que deseja excluir a categoria ID: ${id}`))
       try {
         await categoriaService.deleteById(id);
         setCategorias(categorias.filter((categoria) => categoria.id !== id));
-        setSuccess("Categoria excluida com sucesso");
+        setSuccess("Categoria excluída com sucesso!");
         setTimeout(() => setSuccess(null), 3000);
       } catch (error: unknown) {
         let msg = "Erro ao excluir Categoria";
-
         if (axios.isAxiosError(error) && error.response) {
           msg = error.response.data.error || msg;
         }
-
         setSuccess(null);
         setError(msg);
         setTimeout(() => setError(null), 4000);
@@ -82,30 +79,28 @@ export default function ListarCategorias() {
         }}
       >
         <Typography variant="h4" component="h1" gutterBottom>
-          Página de listagem de categoria
+          Página de Listagem de Categorias
         </Typography>
 
         <Button variant="contained">
           <Link
-           to="/categorias/novo"
-           style={{textDecoration: "none", color: "inherit"}}>
+            to="/categorias/novo"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
             Novo
           </Link>
         </Button>
       </Box>
-      {succes && (
-        <Alert severity="success" sx={{mb : 2}}>
-          {succes}
+      {success && (
+        <Alert severity="success" sx={{ mb: 2 }}>
+          {success}
         </Alert>
       )}
       {error && (
-        <Alert severity="error" sx={{mb : 2}}>
+        <Alert severity="error" sx={{ mb: 2 }}>
           {error}
         </Alert>
       )}
-      <Typography variant="h4" component="h1" gutterBottom>
-        Listagem de Categorias
-      </Typography>
 
       {loading ? (
         <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
@@ -133,7 +128,7 @@ export default function ListarCategorias() {
                         <IconButton
                           aria-label="editar"
                           component={Link}
-                          to={`/categorias/${categoria.id}/editar`}
+                          to={`/categorias/editar/${categoria.id}`}
                         >
                           <Edit />
                         </IconButton>
